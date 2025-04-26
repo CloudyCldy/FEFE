@@ -1,100 +1,100 @@
-# User Management System
+# Sistema de Gestión de Usuarios
 
-A modern React-based user management system with authentication and CRUD operations.
+Un sistema moderno de gestión de usuarios basado en React con autenticación y operaciones CRUD.
 
-## Project Overview
+## Descripción del Proyecto
 
-This is a full-stack web application built with React that provides user management functionality including:
-- User authentication (login/register)
-- User listing
-- User creation and editing
-- Protected routes
+Esta es una aplicación web full-stack construida con React que proporciona funcionalidad de gestión de usuarios, incluyendo:
+- Autenticación de usuarios (inicio de sesión/registro)
+- Listado de usuarios
+- Creación y edición de usuarios
+- Rutas protegidas
 
-## Tech Stack
+## Tecnologías Utilizadas
 
-- **Frontend Framework**: React 19
-- **UI Library**: Material-UI (MUI) v7
-- **Routing**: React Router DOM v7
-- **Form Handling**: Formik with Yup validation
-- **HTTP Client**: Axios
-- **Authentication**: JWT (JSON Web Tokens)
+- **Framework Frontend**: React 19
+- **Biblioteca UI**: Material-UI (MUI) v7
+- **Enrutamiento**: React Router DOM v7
+- **Manejo de Formularios**: Formik con validación Yup
+- **Cliente HTTP**: Axios
+- **Autenticación**: JWT (JSON Web Tokens)
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
 src/
-├── components/     # Reusable UI components
-├── context/       # React context providers
-├── hooks/         # Custom React hooks
-├── pages/         # Page components
-├── services/      # API and authentication services
-├── styles/        # CSS and styling files
-└── App.js         # Main application component
+├── components/     # Componentes UI reutilizables
+├── context/       # Proveedores de contexto React
+├── hooks/         # Hooks personalizados de React
+├── pages/         # Componentes de página
+├── services/      # Servicios de API y autenticación
+├── styles/        # Archivos CSS y estilos
+└── App.js         # Componente principal de la aplicación
 ```
 
-## Features
+## Características
 
-- **Authentication**
-  - Login functionality
-  - Registration system
-  - Protected routes
-  - JWT-based authentication
+- **Autenticación**
+  - Funcionalidad de inicio de sesión
+  - Sistema de registro
+  - Rutas protegidas
+  - Autenticación basada en JWT
 
-- **User Management**
-  - List all users
-  - Create new users
-  - Edit existing users
-  - Form validation
+- **Gestión de Usuarios**
+  - Listar todos los usuarios
+  - Crear nuevos usuarios
+  - Editar usuarios existentes
+  - Validación de formularios
 
-## Getting Started
+## Comenzando
 
-### Prerequisites
+### Prerrequisitos
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Node.js (v14 o superior)
+- npm o yarn
 
-### Installation
+### Instalación
 
-1. Clone the repository:
+1. Clonar el repositorio:
 ```bash
-git clone [repository-url]
+git clone [url-del-repositorio]
 ```
 
-2. Install dependencies:
+2. Instalar dependencias:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. Iniciar el servidor de desarrollo:
 ```bash
 npm start
 ```
 
-The application will be available at `http://localhost:3000`
+La aplicación estará disponible en `http://localhost:3000`
 
-## Available Scripts
+## Scripts Disponibles
 
-- `npm start`: Runs the app in development mode
-- `npm test`: Launches the test runner
-- `npm run build`: Builds the app for production
-- `npm run eject`: Ejects from Create React App
+- `npm start`: Ejecuta la aplicación en modo desarrollo
+- `npm test`: Inicia el ejecutor de pruebas
+- `npm run build`: Construye la aplicación para producción
+- `npm run eject`: Expulsa de Create React App
 
-## Environment Variables
+## Variables de Entorno
 
-Create a `.env` file in the root directory with the following variables:
+Crea un archivo `.env` en el directorio raíz con las siguientes variables:
 
 ```
-REACT_APP_API_URL=your_api_url
+REACT_APP_API_URL=tu_url_api
 ```
 
-## Contributing
+## Contribuir
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Haz un fork del repositorio
+2. Crea tu rama de características (`git checkout -b feature/IncreibleCaracteristica`)
+3. Haz commit de tus cambios (`git commit -m 'Añadir alguna IncreibleCaracteristica'`)
+4. Haz push a la rama (`git push origin feature/IncreibleCaracteristica`)
+5. Abre un Pull Request
 
-## License
+## Licencia
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
