@@ -1,35 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Box, Typography } from '@mui/material';
-import { register } from '../services/auth'; // Importamos la función de registro
+import { login } from '../services/auth';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Register = () => {
-    const navigate = useNavigate();
-    const [error, setError] = useState('');
+const Login = () => {
+    const navigate = useNavigate(); // Para redirigir al usuario después de iniciar sesión
+    const [error, setError] = useState(''); // Estado para almacenar los errores
 
+    // Configuración del formulario usando Formik y Yup para validaciones
     const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
-            confirmPassword: '',
-            fullName: '', // Nuevo campo
         },
         validationSchema: Yup.object({
             email: Yup.string().email('Email inválido').required('Requerido'),
-            password: Yup.string().min(6, 'La contraseña debe tener al menos 6 caracteres').required('Requerido'),
-            confirmPassword: Yup.string()
-                .oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
-                .required('Requerido'),
-            fullName: Yup.string().required('Requerido'), // Validación para nombre completo
+            password: Yup.string().required('Requerido'),
         }),
         onSubmit: async (values) => {
             try {
-                await register(values.email, values.password, values.fullName); // Enviamos fullName
-                navigate('/login');
+                // Intentamos iniciar sesión con los valores del formulario
+                await login(values.email, values.password);
+                navigate('/users'); // Redirigimos a /users después de iniciar sesión
             } catch (err) {
-                setError('Error al registrar el usuario');
+                setError('Credenciales inválidas'); // Si ocurre un error, mostramos un mensaje
             }
         },
     });
@@ -38,21 +34,10 @@ const Register = () => {
         <Container maxWidth="xs">
             <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Typography component="h1" variant="h5">
-                    Crear cuenta
+                    Iniciar sesión
                 </Typography>
-                {error && <Typography color="error">{error}</Typography>}
+                {error && <Typography color="error">{error}</Typography>} {/* Mostrar error */}
                 <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        id="fullName"
-                        label="Nombre completo"
-                        name="fullName"
-                        value={formik.values.fullName}
-                        onChange={formik.handleChange}
-                        error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-                        helperText={formik.touched.fullName && formik.errors.fullName}
-                    />
                     <TextField
                         margin="normal"
                         fullWidth
@@ -60,6 +45,7 @@ const Register = () => {
                         label="Email"
                         name="email"
                         autoComplete="email"
+                        autoFocus
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         error={formik.touched.email && Boolean(formik.errors.email)}
@@ -72,26 +58,22 @@ const Register = () => {
                         label="Contraseña"
                         type="password"
                         id="password"
-                        autoComplete="new-password"
+                        autoComplete="current-password"
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         error={formik.touched.password && Boolean(formik.errors.password)}
                         helperText={formik.touched.password && formik.errors.password}
                     />
-                    <TextField
-                        margin="normal"
-                        fullWidth
-                        name="confirmPassword"
-                        label="Confirmar Contraseña"
-                        type="password"
-                        id="confirmPassword"
-                        value={formik.values.confirmPassword}
-                        onChange={formik.handleChange}
-                        error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-                        helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                    />
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                        Registrar
+                        Iniciar sesión
+                    </Button>
+                    <Button
+                        fullWidth
+                        variant="outlined"
+                        sx={{ mt: 1 }}
+                        onClick={() => navigate('/register')} // Redirige a la página de registro
+                    >
+                        ¿No tienes cuenta? Regístrate
                     </Button>
                 </Box>
             </Box>
@@ -99,4 +81,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
