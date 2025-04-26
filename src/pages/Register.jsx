@@ -71,7 +71,7 @@ const Login = () => {
                         fullWidth
                         variant="outlined"
                         sx={{ mt: 1 }}
-                        onClick={() => navigate('/register')} // Redirige a la página de registro
+                        onClick={() => navigate('/auth/register')} // Redirige a la página de registro
                     >
                         ¿No tienes cuenta? Regístrate
                     </Button>
