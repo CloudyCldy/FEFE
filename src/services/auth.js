@@ -25,7 +25,7 @@ export const isAuthenticated = () => {
 };
 export const register = async (email, password, full_name) => {
     try {
-        const response = await api.post('/register', {
+        const response = await api.post('/auth/register', {
             email,
             password,
             full_name, // Asegurarse de incluirlo
