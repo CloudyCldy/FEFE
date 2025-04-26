@@ -27,7 +27,7 @@ const Register = () => {
         onSubmit: async (values) => {
             try {
                 await register(values.email, values.password, values.fullName); // Enviamos fullName
-                navigate('/login');
+                navigate('/auth/login');
             } catch (err) {
                 setError('Error al registrar el usuario');
             }
